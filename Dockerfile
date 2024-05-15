@@ -3,18 +3,7 @@
 
 #################### SGLANG API SERVER ####################
 # prepare basic build environment
-FROM nvidia/cuda:12.4.1-devel-ubuntu22.04 AS sglang
-
-RUN apt-get update -y \
-    && apt-get install -y python3-pip git \
-    && apt-get autoclean \
-    && rm -rf /var/lib/apt/lists/*
-
-# Workaround for https://github.com/openai/triton/issues/2507 and
-# https://github.com/pytorch/pytorch/issues/107960 -- hopefully
-# this won't be needed for future versions of this docker image
-# or future versions of triton.
-RUN ldconfig /usr/local/cuda-12.4/compat/
+FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime AS sglang
 
 WORKDIR /workspace
 
