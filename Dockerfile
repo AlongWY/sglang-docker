@@ -2,7 +2,7 @@
 # can be directly used to run the OpenAI compatible server.
 
 #################### SGLANG API SERVER ####################
-FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime AS sglang
+FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime AS sglang
 
 WORKDIR /workspace
 
